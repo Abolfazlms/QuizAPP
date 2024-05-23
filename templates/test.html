@@ -2,8 +2,6 @@
 {%load static %}
 {% block content %}
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="vh-100 d-flex justify-content-center align-items-center">
     <div class="card " style="border-radius: 7px; max-width: 30rem; height: auto;">
         <img class="card-img-top" src="{% static 'assets/img/cta-bg.jpg'%}" alt="Card image cap" style=" max-width: 100%; 
@@ -14,30 +12,34 @@
         transform: translate(-140%, 40%);
         border-radius: 100%;"> <i class="fa fa-play"></i></button>
         <div class="card-body">
-            <h5 class="card-title" style="display: flex; justify-content: center;">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
+            <h5 class="card-title" style="display: flex; justify-content: center;">صورت سوال</h5>
+            <p class="text-justify" style="max-width: 30rem;">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                صنعت چاپ، و با
+                استفاده از طراحان
+                گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
+                تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+            </p>
         </div>
         <div class="card-body" style="display: flex; justify-content: center;">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
                     value="option1">
-                <label class="form-check-label" for="inlineRadio1">choose this 1</label>
+                <label class="form-check-label" for="inlineRadio1">گزینه 1</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
                     value="option2">
-                <label class="form-check-label" for="inlineRadio2">choose this 2</label>
+                <label class="form-check-label" for="inlineRadio2">گزینه 2</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
                     value="option3">
-                <label class="form-check-label" for="inlineRadio2">choose this 3</label>
+                <label class="form-check-label" for="inlineRadio2">3 گزینه </label>
             </div>
         </div>
         <div class="card-body" style="display: flex; justify-content: space-between;">
-            <a href="#" class="btn btn-primary">before</a>
-            <a href="#" class="btn btn-primary">after</a>
+            <a href="#" class="btn btn-primary">سوال بعدی</a>
+            <a href="#" class="btn btn-primary">سوال قبلی</a>
         </div>
     </div>
 </div>
