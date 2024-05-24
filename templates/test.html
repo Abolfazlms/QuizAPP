@@ -3,44 +3,51 @@
 {% block content %}
 
 <div class="vh-100 d-flex justify-content-center align-items-center">
-    <div class="card " style="border-radius: 7px; max-width: 30rem; height: auto;">
-        <img class="card-img-top" src="{% static 'assets/img/cta-bg.jpg'%}" alt="Card image cap" style=" max-width: 100%; 
+    <div class="card shadow-sm mb-5 bg-body  " data-aos="zoom-in" data-aos-delay="200"
+        style="border-radius: 10px; max-width:35rem; height: auto; background-color: blue;">
+        <img class="card-img-top pic" src="{% static 'assets/img/cta-bg.jpg'%}" alt="Card image cap" style="  
         height: 20rem;
-        object-fit: cover;">
+        object-fit: cover;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;">
         <button href="#" class="btn btn-primary" style="position: absolute;
         left: 100%;
         transform: translate(-140%, 40%);
-        border-radius: 100%;"> <i class="fa fa-play"></i></button>
+        border-radius: 100%;" type="button"> <i class="fa fa-play"></i></button>
         <div class="card-body">
-            <h5 class="card-title" style="display: flex; justify-content: center;">صورت سوال</h5>
-            <p class="text-justify" style="max-width: 30rem;">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+            <p class="card-title text-justify"
+                style="max-width: 98% ;display: flex; justify-content: center;font-family: Vazirmatn; font-weight: 700;">
+                زماني كه كودك چيزي را مي‌خواهد ، آيا درخواست خود را با اشاره به آن بيان مي‌كند؟</p>
+            <!-- <p class="text-justify" style="max-width: auto;">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
                 صنعت چاپ، و با
                 استفاده از طراحان
                 گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
                 تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-            </p>
-        </div>
-        <div class="card-body" style="display: flex; justify-content: center;">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                    value="option1">
-                <label class="form-check-label" for="inlineRadio1">گزینه 1</label>
+            </p> -->
+            <div class="card-body" style="display: flex; justify-content: center;font-family: Vazirmatn;">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineRadio1"> بله </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                        value="option2">
+                    <label class="form-check-label" for="inlineRadio2"> گاهی </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                        value="option3">
+                    <label class="form-check-label" for="inlineRadio2"> هنوز نه </label>
+                </div>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                    value="option2">
-                <label class="form-check-label" for="inlineRadio2">گزینه 2</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                    value="option3">
-                <label class="form-check-label" for="inlineRadio2">3 گزینه </label>
+
+            <div style="display: flex; justify-content: space-between;font-family: Vazirmatn;">
+                <a href="#" class="btn btn-primary" style="border-radius: 10px;">سوال بعدی</a>
+                <a href="#" class="btn btn-primary" style="border-radius: 10px;">سوال قبلی</a>
             </div>
         </div>
-        <div class="card-body" style="display: flex; justify-content: space-between;">
-            <a href="#" class="btn btn-primary">سوال بعدی</a>
-            <a href="#" class="btn btn-primary">سوال قبلی</a>
-        </div>
+
     </div>
 </div>
 
