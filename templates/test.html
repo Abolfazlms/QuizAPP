@@ -3,29 +3,49 @@
 {% block content %}
 
 <div class="vh-100 d-flex justify-content-center align-items-center">
-    <div class="card shadow-sm mb-5 bg-body  " data-aos="zoom-in" data-aos-delay="200"
-        style="border-radius: 10px; max-width:35rem; height: auto; background-color: blue;">
-        <img class="card-img-top pic" src="{% static 'assets/img/cta-bg.jpg'%}" alt="Card image cap" style="  
-        height: 20rem;
+    <div class="card shadow-sm mb-5 bg-light mb-3" data-aos="zoom-in" data-aos-delay="200"
+        style="border-radius: 10px; max-width:35rem; height: auto;">
+        <img class="card-img-top pic" src="{% static 'assets/img/cta-bg.jpg'%}" alt="Card image cap" style="
+        height: 15rem;
         object-fit: cover;
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;">
         <button href="#" class="btn btn-primary" style="position: absolute;
         left: 100%;
         transform: translate(-140%, 40%);
-        border-radius: 100%;" type="button"> <i class="fa fa-play"></i></button>
-        <div class="card-body">
-            <p class="card-title text-justify"
-                style="max-width: 98% ;display: flex; justify-content: center;font-family: Vazirmatn; font-weight: 700;">
-                زماني كه كودك چيزي را مي‌خواهد ، آيا درخواست خود را با اشاره به آن بيان مي‌كند؟</p>
-            <!-- <p class="text-justify" style="max-width: auto;">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+        border-radius: 100%;" type="button"> <i class="fa fa-play"></i>
+        </button>
+        <div class="card-header d-flex justify-content-center" style="font-weight:700;font-size: small;">
+            برقراری ارتباط
+        </div>
+
+        <div class="card-body btn-group-vertical text-right gap-3">
+            <p class="card-text"
+                style="display: flex; justify-content: center;font-family: Vazirmatn; font-weight: 500;border-radius: 0;">
+                زماني كه كودك چيزي را مي‌خواهد ، آيا درخواست خود را با اشاره به آن بيان مي‌كند؟
+            </p>
+            <button href="#" class="list-group-item list-group-item-action border"
+                style="border-radius: 50px;">بله</button>
+            <button href="#" class="list-group-item list-group-item-action border"
+                style="border-radius: 50px;">گاهی</button>
+            <button href="#" class="list-group-item list-group-item-action border"
+                style="border-radius: 50px;">هرگز</button>
+        </div>
+        <!-- <div class="card-body" style="display: flex; justify-content: space-between;font-family: Vazirmatn;">
+            <a href="{% url 'quiz:index' %}" class="btn btn-primary" style="border-radius: 10px;">سوال بعدی</a>
+            <a href="{% url 'quiz:index' %}" class="btn btn-primary" style="border-radius: 10px;">سوال قبلی</a>
+        </div> -->
+        <!-- <div class="card-body"> -->
+
+        <!-- <p class="text-justify" style="max-width: auto;">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
                 صنعت چاپ، و با
                 استفاده از طراحان
                 گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
                 تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
             </p> -->
-            <div class="card-body" style="display: flex; justify-content: center;font-family: Vazirmatn;">
-                <div class="form-check form-check-inline">
+        <!-- <div class="card-body" style="display: flex; justify-content: center;font-family: Vazirmatn;"> -->
+
+        <!-- <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
                         value="option1">
                     <label class="form-check-label" for="inlineRadio1"> بله </label>
@@ -39,15 +59,10 @@
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
                         value="option3">
                     <label class="form-check-label" for="inlineRadio2"> هنوز نه </label>
-                </div>
-            </div>
+                </div> -->
+        <!-- </div> -->
 
-            <div style="display: flex; justify-content: space-between;font-family: Vazirmatn;">
-                <a href="#" class="btn btn-primary" style="border-radius: 10px;">سوال بعدی</a>
-                <a href="#" class="btn btn-primary" style="border-radius: 10px;">سوال قبلی</a>
-            </div>
-        </div>
-
+        <!-- </div> -->
     </div>
 </div>
 
