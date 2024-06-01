@@ -6,14 +6,16 @@ class Category(models.Model):
     def __str__(self):
         return self.name 
 class Question (models.Model):
-    id = models.AutoField(primary_key=True)
     content = models.TextField()
-    category = models.CharField(max_length=100, null=True, default=None)
-    image = models.ImageField(upload_to='quiz/',default='quiz/default.jpg')
+    category = models.ForeignKey(Category,on_delete=models.SET_NULL, null=True)
+    image = models.ImageField(upload_to='quiz/')
     audio_file = models.FileField(upload_to='audio/')
-    score = models.IntegerField(default = 0)
+    choice = models.IntegerField(default = 0)    
     created_date = models.DateTimeField(auto_now_add = True)
     updated_date = models.DateTimeField(auto_now = True)
 
+    class Meta:
+        ordering = ['category']
+
     def __str__(self):
-        return self.title
+        return self.content
