@@ -15,15 +15,18 @@
         transform: translate(-140%, 40%);
         border-radius: 100%;" type="button"> <i class="fa fa-play"></i>
         </button>
-        <div class="card-header d-flex justify-content-center" style="font-weight:700;font-size: small;">
+        <div class="card-header d-flex justify-content-center"
+            style=" font-family: Vazirmatn; font-weight:700;font-size: small;">
             برقراری ارتباط
         </div>
 
         <div class="card-body d-flex btn-group-vertical text-right"
-            style="justify-content:space-between; height:17rem;">
+            style="justify-content:space-between; height:17rem; font-family: Vazirmatn;">
             <p class="card-text"
                 style="display: flex; justify-content: center; font-size:15px; font-family: Vazirmatn; font-weight: 500;border-radius: 0;">
-                زماني كه كودك چيزي را مي‌خواهد ، آيا درخواست خود را با اشاره به آن بيان مي‌كند؟
+                آیا بدون اینکه شما به فرزندتان نشان دهید، وقتی می‌گویید «پیشی را نشون بده» یا می‌پرسید «هاپو کو؟»
+                کودکتان با انگشت به تصویر درست اشاره می‌کند؟ (اگر یک تصویر را هم درست تشخیص دهد کافی است.)
+            </p>
             </p>
             <button href="#" class="list-group-item list-group-item-action border"
                 style="border-radius: 50px;">بله</button>
@@ -35,8 +38,15 @@
         <div class="card-body" style="display: flex; justify-content: space-between;font-family: Vazirmatn;
          align-items:center;">
             <a href="{% url 'quiz:index' %}" class="btn btn-primary" style="border-radius: 10px;">سوال بعدی</a>
-            <a>سوال 1 از 30</a>
+            <a style="font-family: Vazirmatn;">سوال 1 از 30</a>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var replaceDigits = function () {
+        var map = ["&\#1776;", "&\#1777;", "&\#1778;", "&\#1779;", "&\#1780;", "&\#1781;", "&\#1782;", "&\#1783;", "&\#1784;", "&\#1785;"]
+        document.body.innerHTML = document.body.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function ($0) { return map[$0] });
+    }
+    window.onload = replaceDigits;
+</script>
 {% endblock %}
