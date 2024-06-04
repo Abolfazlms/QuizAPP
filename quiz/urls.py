@@ -3,5 +3,6 @@ from django.urls import path, include
 
 app_name = 'quiz'
 urlpatterns = [
-    path('',test_view,name='index')
+    path('',test_view,name='index'),
+    path('<int:qid>/', quiz_single, name='single')
 ]
