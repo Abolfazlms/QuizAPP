@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Result</title>
+</head>
+
+<body>
+    <h1>Test Result for {{ user_test_result.test.title }}</h1>
+    <p>Completed at: {{ user_test_result.completed_at }}</p>
+
+    <h2>Analysis</h2>
+    <ul>
+        {% for category, average in category_averages.items %}
+        <li>Category {{ category }}: {{ average }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
