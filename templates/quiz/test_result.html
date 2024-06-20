@@ -1,18 +1,32 @@
+{% load test_tags %}
 <!DOCTYPE html>
-<html>
+<html dir="rtl">
 
 <head>
     <title>Test Result</title>
 </head>
 
 <body>
-    <h1>Test Result for {{ user_test_result.test.title }}</h1>
-    <p>Completed at: {{ user_test_result.completed_at }}</p>
+    <h1>نتیجه تست {{ user_test_result.test.title }}</h1>
+    <p>تاریخ تکمیل: {{ user_test_result.completed_at }}</p>
+    <p>کاربر: {{ user_test_result.user.username }}</p>
 
-    <h2>Analysis</h2>
+    <h2>تحلیل</h2>
     <ul>
-        {% for category, average in category_averages.items %}
-        <li>Category {{ category }}: {{ average }}</li>
+        {% for category, data in analysis.items %}
+        <li>
+            {{ category }}:
+            {% with average=category_averages|dict_get:category %}
+            {{ average }}
+            {% if average > data.category.normal_threshold %}
+            - وضعیت: طبیعی
+            {% elif average > data.category.monitoring_threshold %}
+            - وضعیت: منطقه پایش
+            {% else %}
+            - وضعیت: نیاز به ارجاع
+            {% endif %}
+            {% endwith %}
+        </li>
         {% endfor %}
     </ul>
 </body>
