@@ -1,5 +1,5 @@
 from django.contrib import admin
-from quiz.models import Question, Category
+from quiz.models import Category, Test, Question, Choice, UserTestResult, UserAnswer
 
 class postAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'
@@ -13,3 +13,7 @@ class postAdmin(admin.ModelAdmin):
 
 admin.site.register(Question,postAdmin)
 admin.site.register(Category)
+admin.site.register(Test)
+admin.site.register(Choice)
+admin.site.register(UserTestResult)
+admin.site.register(UserAnswer)

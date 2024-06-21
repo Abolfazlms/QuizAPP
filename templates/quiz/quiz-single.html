@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-{%load static %}
+{% load static %}
 {% block content %}
 
 <div class="vh-100 d-flex justify-content-center align-items-center">
-    <div class="card shadow-sm bg-light" data-aos="zoom-in" data-aos-delay="200"
-        style="border-radius: 10px; width:30rem; height: auto; flex-wrap:nowrap;">
+    <div class="card shadow-sm bg-light" data-aos="{% if quiz.id == 1 %}zoom-in{% else %}fade-left{% endif %}"
+        data-aos-delay="200" style="border-radius: 10px; width:30rem; height: auto; flex-wrap:nowrap;">
         <audio id="music">
             <source src='{{ quiz.audio_file.url }}' type="audio/mp3">
         </audio>
@@ -14,8 +14,8 @@
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;">
         <button onclick="playAudio()" class="btn btn-primary" style="position: absolute;
-        left: 100%;
-        transform: translate(-140%, 40%);
+        right: 100%;
+        transform: translate(140%, 40%);
         border-radius: 100%;" type="button"> <i class="fa fa-play"></i>
         </button>
 
@@ -30,60 +30,71 @@
                 style="font-size:14px; font-family: Vazirmatn; font-weight: 500;border-radius: 0;">
                 {{quiz.content}}
             </p>
-            <!-- 
-            <button href="#" class="list-group-item list-group-item-action border"
-                style="border-radius: 50px;">بله</button>
-            <button href="#" class="list-group-item list-group-item-action border"
-                style="border-radius: 50px;">گاهی</button>
-            <button href="#" class="list-group-item list-group-item-action border" style="border-radius: 50px;">هنوز
-                نه</button> -->
         </div>
-        <form method="post">
+        <form method="post" id="quiz-form">
             {% csrf_token %}
-            <div class=" card-body d-flex justify-content-center btn-group-vertical gap-2"
-                style=" display: flex; font-family: Vazirmatn; padding-top: 0;">
-                <input name="choice1" type="submit" value="بله" class="btn btn-outline-primary rounded-5 "
-                    style=" border-radius: 10;"></input>
-
-                <input name="choice2" type="submit" value="گاهی" class="btn btn-outline-primary rounded-5 "
-                    style=" border-radius: 10;"></input>
-
-                <input name="choice3" type="submit" value="نه" class="btn btn-outline-primary rounded-5"
-                    style=" border-radius: 10;"></input>
+            <div class="card-body d-flex justify-content-center btn-group-vertical gap-2"
+                style="display: flex; font-family: Vazirmatn; padding-top: 0;">
+                {% for choice in choices %}
+                <input type='submit' style="display: none;" type="radio" id="choice{{ choice.id }}" name="choice"
+                    value="{{ choice.id }}">
+                <label for="choice{{ choice.id }}" class="btn btn-outline-primary rounded-5 choice-btn">
+                    {{choice.text}}
+                </label>
+                {% endfor %}
             </div>
         </form>
-        {%if next%}
-        <div class="card-body" style="display: flex; justify-content: space-between;font-family: Vazirmatn;
-         align-items:center;">
-            <a href="{% url 'quiz:single' qid=next.id%}" class="btn btn-primary" style="border-radius: 10px;">سوال
-                بعدی</a>
-            <a style="font-family: Vazirmatn;">سوال {{number}} از {{all_quiz}}</a>
+        {% if next %}
+        <div class="card-body"
+            style="display: flex; justify-content: space-between;font-family: Vazirmatn; align-items:center;">
+            <button onclick="submitAndNext({{ next.id }})" class="btn btn-primary" style="border-radius: 10px;">سوال
+                بعدی</button>
+            <a style="font-family: Vazirmatn;">سوال {{ number }} از {{ all_quiz }}</a>
         </div>
-        {%else%}
-        <div class="card-body " style=" display: flex; justify-content:center; font-family: Vazirmatn;">
-            <a href=" {% url 'quiz:index' %}" class="btn btn-primary rounded-5"
-                style=" width: 15rem; border-radius: 10px;">دیدن
-                نتایج</a>
+        {% else %}
+        <div class="card-body" style="display: flex; justify-content:center; font-family: Vazirmatn;">
+            <button onclick="submitAndNext()" class="btn btn-primary rounded-5"
+                style="width: 15rem; border-radius: 10px;">دیدن نتایج</button>
         </div>
         {% endif %}
-
-
     </div>
 </div>
 <script type="text/javascript">
     var replaceDigits = function () {
-        var map = ["&\#1776;", "&\#1777;", "&\#1778;", "&\#1779;", "&\#1780;", "&\#1781;", "&\#1782;", "&\#1783;", "&\#1784;", "&\#1785;"]
-        document.body.innerHTML = document.body.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function ($0) { return map[$0] });
+        var map = ["&\#1776;", "&\#1777;", "&\#1778;", "&\#1779;", "&\#1780;", "&\#1781;", "&\#1782;", "&\#1783;", "&\#1784;", "&\#1785;"];
+        document.body.innerHTML = document.body.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function ($0) { return map[$0]; });
     }
     window.onload = replaceDigits;
 </script>
 <script>
-    // get element from html
     var audioT = document.getElementById("music");
-
-    // use play() method to play music
     function playAudio() {
         audioT.play();
     }
+</script>
+<script>
+    function submitAndNext(nextId) {
+        var form = document.getElementById('quiz-form');
+        if (nextId) {
+            form.action = "{% url 'quiz:single' qid=1 %}".replace('1', nextId - 1);
+        } else {
+            form.action = "{% url 'quiz:result' result_id=user_test_result.id %}";
+        }
+        form.submit();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const choiceBtns = document.querySelectorAll('.choice-btn');
+
+        choiceBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Remove 'selected' class from all buttons
+                choiceBtns.forEach(b => b.classList.remove('selected'));
+
+                // Add 'selected' class to the clicked button
+                btn.classList.add('selected');
+            });
+        });
+    });
 </script>
 {% endblock %}
