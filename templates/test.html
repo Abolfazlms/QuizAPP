@@ -1,52 +1,30 @@
 {% extends 'base.html' %}
-{%load static %}
-{% block content %}
+{% load static %}
 
-<div class="vh-100 d-flex justify-content-center align-items-center">
-    <div class="card shadow-sm bg-light" data-aos="zoom-in" data-aos-delay="200"
-        style="border-radius: 10px; max-width:30rem; height: auto;">
-        <img class="card-img-top" src="{% static 'assets/img/pic/1.webp'%}" alt="Card image cap" style="
-        height: 18rem;
-        object-fit:cover;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;">
-        <button href="#" class="btn btn-primary" style="position: absolute;
-        left: 100%;
-        transform: translate(-140%, 40%);
-        border-radius: 100%;" type="button"> <i class="fa fa-play"></i>
-        </button>
-        <div class="card-header d-flex justify-content-center"
-            style=" font-family: Vazirmatn; font-weight:700;font-size: small;">
-            برقراری ارتباط
-        </div>
+{% block content%}
+<section id="hero" class="hero section">
 
-        <div class="card-body d-flex btn-group-vertical text-right"
-            style="justify-content:space-between; height:17rem; font-family: Vazirmatn;">
-            <p class="card-text"
-                style="display: flex; justify-content: center; font-size:15px; font-family: Vazirmatn; font-weight: 500;border-radius: 0;">
-                آیا بدون اینکه شما به فرزندتان نشان دهید، وقتی می‌گویید «پیشی را نشون بده» یا می‌پرسید «هاپو کو؟»
-                کودکتان با انگشت به تصویر درست اشاره می‌کند؟ (اگر یک تصویر را هم درست تشخیص دهد کافی است.)
-            </p>
-            </p>
-            <button href="#" class="list-group-item list-group-item-action border"
-                style="border-radius: 50px;">بله</button>
-            <button href="#" class="list-group-item list-group-item-action border"
-                style="border-radius: 50px;">گاهی</button>
-            <button href="#" class="list-group-item list-group-item-action border" style="border-radius: 50px;">هنوز
-                نه</button>
-        </div>
-        <div class="card-body" style="display: flex; justify-content: space-between;font-family: Vazirmatn;
-         align-items:center;">
-            <a href="{% url 'quiz:index' %}" class="btn btn-primary" style="border-radius: 10px;">سوال بعدی</a>
-            <a style="font-family: Vazirmatn;">سوال 1 از 30</a>
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                <h1 style="font-family: Vazirmatn;" data-aos="fade-up">آزمون آنلاین ASQ-3
+                </h1>
+                <br>
+                <p style="font-family: Vazirmatn;font-weight: 200;" data-aos="fade-up" data-aos-delay="100">به اولین
+                    سامانه یکپارچه آزمون
+                    آنلاین ASQ-3 خوش آمدید.</p>
+                <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="400">
+                    <a href="{% url 'account:login'%}" class="btn-get-started"
+                        style=" font-family: Vazirmatn; font-weight: 700;"> آغاز کنید <i
+                            class="bi bi-arrow-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+                <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid animated" alt="">
+            </div>
         </div>
     </div>
-</div>
-<script type="text/javascript">
-    var replaceDigits = function () {
-        var map = ["&\#1776;", "&\#1777;", "&\#1778;", "&\#1779;", "&\#1780;", "&\#1781;", "&\#1782;", "&\#1783;", "&\#1784;", "&\#1785;"]
-        document.body.innerHTML = document.body.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function ($0) { return map[$0] });
-    }
-    window.onload = replaceDigits;
-</script>
+
+</section><!-- /Hero Section -->
+
 {% endblock %}

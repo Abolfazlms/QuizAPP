@@ -12,6 +12,7 @@ def test_view(request):
     return render(request,'test.html',context)
 
 
+
 @login_required
 def quiz_single(request, qid):
     quests = Question.objects.all()
