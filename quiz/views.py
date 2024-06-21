@@ -2,6 +2,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from quiz.models import Question, Choice, UserTestResult, UserAnswer, Test
 from django.contrib.auth.decorators import login_required
+from django.template.loader import get_template
+from django.utils.html import escape
+
+from xhtml2pdf import pisa
+from django.conf import settings
+import os
 
 import sweetify
 
@@ -94,4 +100,5 @@ def quiz_result(request, result_id):
         'analysis': analysis
     }
 
-    return render(request, 'quiz/test_result.html', context)
+    return render(request, 'quiz/chart.html', context)
+

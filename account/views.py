@@ -43,13 +43,14 @@ def signup_view(request):
         if request.method == 'POST':
             form = UserCreationForm(request.POST)
             if form.is_valid():
-                form.save()
-                sweetify.success(request,'ثبت‌نام با موفقیت انجام شد',text='شما می‌توانید تست را انجام بدهید.', type='success',timer=2000)
-                return redirect('/1')
+                sweetify.success(request,'ثبت‌نام با موفقیت انجام شد',text='شما می‌توانید وارد حساب کاربری شوید.', type='success',timer=2000)
+                form.save()                
+                return redirect('account:login')
+            # print(form.errors)
 
         form = UserCreationForm()
         context = {'form':form}
-        return render(request,'accounts/pages-register.html',context)
+        return render(request,'accounts/signup.html',context)
     else:
         return redirect('/')
 
