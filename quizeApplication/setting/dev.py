@@ -6,7 +6,7 @@ from quizeApplication.settings import *
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-(0%m(^nwm7zk=mlv&yckopkpq1-!pe*qh_&1fi*ix8m)xrjjor'
 DEBUG = True
-ALLOWED_HOSTS = ['heyweb.ir','www.heyweb.ir','127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # INSTALLED_APPS = [
 # ]

@@ -7,9 +7,7 @@ import sweetify
 # Create your views here.
 
 def test_view(request):
-    quiz = Question.objects.all()
-    context = {'quiz':quiz}
-    return render(request,'test.html',context)
+    return render(request,'test.html')
 
 
 
